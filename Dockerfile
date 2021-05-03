@@ -4,9 +4,10 @@ ENV BOLOS_ENV=/opt/bolos
 ENV BOLOS_SDK=$BOLOS_ENV/nanos-secure-sdk
 #ENV BOLOS_SDK=$BOLOS_ENV/blue-secure-sdk
 
+RUN chmod o+w /opt/bolos
 RUN git clone https://github.com/LedgerHQ/nanos-secure-sdk.git $BOLOS_ENV/nanos-secure-sdk
 RUN git clone https://github.com/ledgerhq/blue-secure-sdk $BOLOS_ENV/blue-secure-sdk
-RUN apt-get update && apt-get install -y \
+RUN sudo apt-get update && sudo apt-get install -y \
 	python3-pip
 
 RUN cd /tmp \
@@ -15,7 +16,7 @@ RUN cd /tmp \
 && cd make-4.2.1 \
 && ./configure --prefix=/usr \
 && make \
-make install
+&& make install
 
 
 USER test
