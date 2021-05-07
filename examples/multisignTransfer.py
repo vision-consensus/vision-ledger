@@ -82,7 +82,7 @@ from google.protobuf.any_pb2 import Any
 import grpc
 
 # Start Channel and WalletStub
-channel = grpc.insecure_channel("grpc.trongrid.io:50051")
+channel = grpc.insecure_channel("vtest.infragrid.v.network:50051")
 stub = WalletStub(channel)
 
 logger.debug('''
@@ -91,8 +91,8 @@ logger.debug('''
 
 tx = stub.CreateTransaction2(
         contract.TransferContract(
-            owner_address=bytes.fromhex(address_hex("TUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH")),
-            to_address=bytes.fromhex(address_hex("TPnYqC2ukKyhEDAjqRRobSVygMAb8nAcXM")),
+            owner_address=bytes.fromhex(address_hex("VUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH")),
+            to_address=bytes.fromhex(address_hex("VPnYqC2ukKyhEDAjqRRobSVygMAb8nAcXM")),
             amount=100000
         )
     )  

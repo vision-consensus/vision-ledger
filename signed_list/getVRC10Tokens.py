@@ -13,7 +13,7 @@ def urlopen_with_retry(toread, start):
      for i in range(5):
         try:
             time.sleep(0.3) 
-            req = urllib.request.Request("https://api.trongrid.io/wallet/getpaginatedassetissuelist")
+            req = urllib.request.Request("https://vtest.infragrid.v.network/wallet/getpaginatedassetissuelist")
             req.add_header('Content-Type', 'application/json; charset=utf-8')
             jsondata = json.dumps({"offset": start, "limit": toread})
             jsondataasbytes = jsondata.encode('utf-8')   # needs to be bytes

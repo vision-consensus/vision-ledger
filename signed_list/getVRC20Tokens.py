@@ -17,7 +17,7 @@ def urlopen_with_retry(toread, start):
      for i in range(5):
         try:
             time.sleep(0.3) 
-            url = "https://apilist.tronscan.org/api/token_vrc20?sort=issue_time&limit={}&start={}".format(toread, start)
+            url = "https://vtest.infragrid.v.network/api/token_vrc20?sort=issue_time&limit={}&start={}".format(toread, start)
             req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             return urlopen(req).read()
         except Exception as e:

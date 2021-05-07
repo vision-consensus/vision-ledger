@@ -152,5 +152,4 @@ See step 4 above.
 # Links
 ========
 
-### [vscan Integration](https://github.com/tronscan/tronscan-frontend/tree/ledger)
-### [Video Demo](https://www.youtube.com/watch?v=RYUiiGw-hHw&feature=youtu.be)
+### [vscan Integration]()

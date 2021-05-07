@@ -82,7 +82,7 @@ from google.protobuf.any_pb2 import Any
 import grpc
 
 # Start Channel and WalletStub
-channel = grpc.insecure_channel("grpc.trongrid.io:50051")
+channel = grpc.insecure_channel("vtest.infragrid.v.network:50051")
 stub = WalletStub(channel)
 
 logger.debug('''
