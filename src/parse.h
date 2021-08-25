@@ -16,7 +16,7 @@
 
 #define VRC20_DATA_FIELD_SIZE 68
 
-#define SUN_DIG 6
+#define VDT_DIG 6
 #define ADD_PRE_FIX_BYTE_MAINNET 0x41
 #define MAX_RAW_SIGNATURE 65
 #define MAX_TOKEN_LENGTH 67
@@ -136,7 +136,7 @@ bool parseTokenName(uint8_t token_id, uint8_t *data, uint32_t dataLength, txCont
 bool parseExchange(const uint8_t *data, size_t dataLength, txContent_t *context);
 
 unsigned short print_amount(uint64_t amount, uint8_t *out,
-                                uint32_t outlen, uint8_t sun);
+                                uint32_t outlen, uint8_t vdt);
 bool adjustDecimals(const char *src, uint32_t srcLength, char *target,
                     uint32_t targetLength, uint8_t decimals);
 

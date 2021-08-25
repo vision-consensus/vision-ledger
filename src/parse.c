@@ -102,7 +102,7 @@ bool adjustDecimals(const char *src, uint32_t srcLength, char *target,
     return true;
 }
 unsigned short print_amount(uint64_t amount, uint8_t *out,
-                                uint32_t outlen, uint8_t sun) {
+                                uint32_t outlen, uint8_t vdt) {
     char tmp[20];
     char tmp2[25];
     uint32_t numDigits = 0, i;
@@ -120,7 +120,7 @@ unsigned short print_amount(uint64_t amount, uint8_t *out,
         base /= 10;
     }
     tmp[i] = '\0';
-    adjustDecimals(tmp, i, tmp2, 25, sun);
+    adjustDecimals(tmp, i, tmp2, 25, vdt);
     if (strlen(tmp2) < outlen - 1) {
         strcpy((char *)out, tmp2);
     } else {

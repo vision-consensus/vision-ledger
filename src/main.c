@@ -2875,7 +2875,7 @@ void handleSign(uint8_t p1, uint8_t p2, uint8_t *workBuffer,
                     // call has value
                     if (txContent.amount[0]>0) {
                         os_memmove((void *)toAddress, "VS\0", 4);
-                        print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, SUN_DIG);
+                        print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, VDT_DIG);
                         customContractField |= (1<<0x05);
                         customContractField |= (1<<0x06);
                     }else if (txContent.amount[1]>0) {
@@ -2906,7 +2906,7 @@ void handleSign(uint8_t p1, uint8_t p2, uint8_t *workBuffer,
                 if (!adjustDecimals((char *)G_io_apdu_buffer+100, strlen((const char *)G_io_apdu_buffer+100), (char *)G_io_apdu_buffer, 100, txContent.decimals[0]))
                     THROW(0x6B00);
             }else
-                print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, (txContent.contractType==TRANSFERCONTRACT)?SUN_DIG:txContent.decimals[0]);
+                print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, (txContent.contractType==TRANSFERCONTRACT)?VDT_DIG:txContent.decimals[0]);
 
             getBase58FromAddress(txContent.destination, (uint8_t *)toAddress,
                                  &sha2, truncateAddress);
@@ -2928,8 +2928,8 @@ void handleSign(uint8_t p1, uint8_t p2, uint8_t *workBuffer,
 
             os_memmove((void *)fullContract, txContent.tokenNames[0], txContent.tokenNamesLength[0]+1);
             os_memmove((void *)toAddress, txContent.tokenNames[1], txContent.tokenNamesLength[1]+1);
-            print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, (strncmp((const char *)txContent.tokenNames[0], "VS", 3)==0)?SUN_DIG:txContent.decimals[0]);
-            print_amount(txContent.amount[1],(void *)G_io_apdu_buffer+100,100, (strncmp((const char *)txContent.tokenNames[1], "VS", 3)==0)?SUN_DIG:txContent.decimals[1]);
+            print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, (strncmp((const char *)txContent.tokenNames[0], "VS", 3)==0)?VDT_DIG:txContent.decimals[0]);
+            print_amount(txContent.amount[1],(void *)G_io_apdu_buffer+100,100, (strncmp((const char *)txContent.tokenNames[1], "VS", 3)==0)?VDT_DIG:txContent.decimals[1]);
             // write exchange contract type
             if (!setExchangeContractDetail(txContent.contractType, (void*)exchangeContractDetail)) THROW(0x6A80);
             
@@ -2947,7 +2947,7 @@ void handleSign(uint8_t p1, uint8_t p2, uint8_t *workBuffer,
             
             os_memmove((void *)fullContract, txContent.tokenNames[0], txContent.tokenNamesLength[0]+1);
             print_amount(txContent.exchangeID,(void *)toAddress,sizeof(toAddress), 0);
-            print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, (strncmp((const char *)txContent.tokenNames[0], "VS", 3)==0)?SUN_DIG:txContent.decimals[0]);
+            print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,100, (strncmp((const char *)txContent.tokenNames[0], "VS", 3)==0)?VDT_DIG:txContent.decimals[0]);
             // write exchange contract type
             if (!setExchangeContractDetail(txContent.contractType, (void*)exchangeContractDetail)) THROW(0x6A80);
        
@@ -3052,7 +3052,7 @@ void handleSign(uint8_t p1, uint8_t p2, uint8_t *workBuffer,
                 os_memmove((void *)fullContract, "Photon\0", 10);
             else os_memmove((void *)fullContract, "Entropy\0", 7);
 
-            print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,0, SUN_DIG);
+            print_amount(txContent.amount[0],(void *)G_io_apdu_buffer,0, VDT_DIG);
             if (strlen((const char *)txContent.destination)>0) {
                 getBase58FromAddress(txContent.destination,
                     (uint8_t *)toAddress, &sha2, truncateAddress);
