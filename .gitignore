@@ -69,6 +69,6 @@ ledger/
 /.vscode
 /.idea
 
-# Tron Protogen
+# Vision Protogen
 examples/proto
 examples/protocol
