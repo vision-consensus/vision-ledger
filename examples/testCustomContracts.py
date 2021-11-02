@@ -108,7 +108,7 @@ from google.protobuf.any_pb2 import Any
 import grpc
 
 # Start Channel and WalletStub
-channel = grpc.insecure_channel("vtest.infragrid.v.network:50051")
+channel = grpc.insecure_channel("54.238.114.220:60061")
 stub = WalletStub(channel)
 
 logger.debug('''
@@ -129,7 +129,7 @@ logger.debug('\n\SmartContract Trigger: Deposit VS in TWM Contract')
 data = '{:08x}'.format(0xd0e30db0)
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("TTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
         call_value=1000000,
         data=bytes.fromhex(data)
         ))
@@ -156,7 +156,7 @@ logger.debug('\n\SmartContract Trigger: Deposit BTT in TWM Contract')
 data = '{:08x}'.format(0xd0e30db0)
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("TTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
         call_token_value=1000000,
         token_id=1002000,
         data=bytes.fromhex(data)
@@ -186,7 +186,7 @@ data = '{:08x}{:064x}'.format(
     )
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("TTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
         data=bytes.fromhex(data)
         ))
 
@@ -217,7 +217,7 @@ data = '{:08x}{:064x}{:064x}'.format(
     )
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("TTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
         data=bytes.fromhex(data)
         ))
 

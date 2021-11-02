@@ -108,7 +108,7 @@ from google.protobuf.any_pb2 import Any
 import grpc
 
 # Start Channel and WalletStub
-channel = grpc.insecure_channel("vtest.infragrid.v.network:50051")
+channel = grpc.insecure_channel("54.238.114.220:60061")
 stub = WalletStub(channel)
 
 logger.debug('''
@@ -394,20 +394,23 @@ tx.raw_data.ref_block_bytes = b'0000'
 tx.raw_data.timestamp = 110101010101
 # Vote list 
 v1 = newContract.votes.add()
-v1.vote_address=bytes.fromhex(address_hex("TKSXDA8HfE9E1y39RczVQ1ZascUEtaSToF"))
+v1.vote_address=bytes.fromhex(address_hex("VKSXDA8HfE9E1y39RczVQ1ZascUEtaSToF"))
 v1.vote_count=1
 v2 = newContract.votes.add()
-v2.vote_address=bytes.fromhex(address_hex("TE7hnUtWRRBz3SkFrX8JESWUmEvxxAhoPt"))
+v2.vote_address=bytes.fromhex(address_hex("VE7hnUtWRRBz3SkFrX8JESWUmEvxxAhoPt"))
 v2.vote_count=1
 v3 = newContract.votes.add()
-v3.vote_address=bytes.fromhex(address_hex("TTcYhypP8m4phDhN6oRexz2174zAerjEWP"))
+v3.vote_address=bytes.fromhex(address_hex("VTcYhypP8m4phDhN6oRexz2174zAerjEWP"))
 v3.vote_count=1000
 v4 = newContract.votes.add()
-v4.vote_address=bytes.fromhex(address_hex("TY65QiDt4hLTMpf3WRzcX357BnmdxT2sw9"))
+v4.vote_address=bytes.fromhex(address_hex("VY65QiDt4hLTMpf3WRzcX357BnmdxT2sw9"))
 v4.vote_count=1000
 v5 = newContract.votes.add()
-v5.vote_address=bytes.fromhex(address_hex("TSNbzxac4WhxN91XvaUfPTKP2jNT18mP6T"))
+v5.vote_address=bytes.fromhex(address_hex("VSNbzxac4WhxN91XvaUfPTKP2jNT18mP6T"))
 v5.vote_count=1000
+v6 = newContract.votes.add()
+v6.vote_address=bytes.fromhex(address_hex("VFA1qpUkQ1yBDw4pgZKx25wEZAqkjGoZo1"))
+v6.vote_count=1000
 # End vote list
 c = tx.raw_data.contract.add()
 c.type = vision.Transaction.Contract.VoteWitnessContract
@@ -429,7 +432,7 @@ else:
 
 
 #####################
-# Freeze Balance BW #
+# Freeze Balance PHOTON #
 #####################
 logger.debug('\n\nFreeze Contract photon:')
 
@@ -490,7 +493,7 @@ else:
 
 
 ######################
-# Unfreeze Balance BW#
+# Unfreeze Balance PHOTON#
 ######################
 logger.debug('\n\nUnfreeze Contract photon:')
 
@@ -696,7 +699,7 @@ else:
 
 
 ##################
-# VRC20 Transfer #
+# VRC10 Transfer #
 ##################
 logger.debug('\n\SmartContract Trigger VRC20 Transfer:')
 
@@ -704,7 +707,7 @@ tx = vision.Transaction()
 
 newContract = contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("TBoTZcARzWVgnNuB9SyE3S5g1RwsXoQL16")),
+        contract_address=bytes.fromhex(address_hex("VBoTZcARzWVgnNuB9SyE3S5g1RwsXoQL16")),
         data=bytes.fromhex("a9059cbb000000000000000000000000364b03e0815687edaf90b81ff58e496dea7383d700000000000000000000000000000000000000000000000000000000000f4240")
         )
 
@@ -736,7 +739,7 @@ tx = vision.Transaction()
 
 newContract = contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("TBoTZcARzWVgnNuB9SyE3S5g1RwsXoQL16")),
+        contract_address=bytes.fromhex(address_hex("VBoTZcARzWVgnNuB9SyE3S5g1RwsXoQL16")),
         data=bytes.fromhex("095ea7b3000000000000000000000000364b03e0815687edaf90b81ff58e496dea7383d700000000000000000000000000000000000000000000000000000000000f4240")
         )
 

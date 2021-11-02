@@ -19,8 +19,8 @@ Testers, jump to: [Load pre-compiled HEX file](#load-pre-compiled-hex-file).
 
 # Clone this repository
 ```bash
-git clone https://github.com/vision-consensus/vision-ledger.git
-cd vision-ledger
+git clone https://github.com/fbsobreira/trx-ledger.git
+cd trx-ledger
 ```
 
 
@@ -41,7 +41,7 @@ The `.` at the end is **important!**
  
 ### Step 2 - Use Docker image
 ```bash
-docker run --rm -v "$(pwd)":/vision-ledger -w /vision-ledger ledger-chain make
+docker run --rm -v "$(pwd)":/trx-ledger -w /trx-ledger ledger-chain make
 ```
 
 ## Using your own toolchain
@@ -82,7 +82,7 @@ If you run into errors here, make sure you have the required dependencies instal
 python -m ledgerblue.loadApp \
 --targetId 0x31100003 \
 --fileName bin/app.hex \
---icon `docker run --rm -v "$(pwd)":/vision_ledger -w /vision_ledger ledger-chain sh -c 'python $BOLOS_SDK/icon.py icon.gif hexbitmaponly'` \
+--icon `docker run --rm -v "$(pwd)":/trx_ledger -w /trx_ledger ledger-chain sh -c 'python $BOLOS_SDK/icon.py icon.gif hexbitmaponly'` \
 --curve secp256k1 \
 --path "44'/195'" \
 --apdu \
@@ -112,7 +112,7 @@ Testers should start here.
 
 
 ### Download pre-compiled HEX file
-Download a copy of the [latest HEX file here](https://github.com/fbsobreira/vision-ledger/releases).
+Download a copy of the [latest HEX file here](https://github.com/fbsobreira/trx-ledger/releases).
 
 Write down or remember the version number without the `v`. `v0.0.1` becomes `0.0.1`.
 
@@ -149,7 +149,17 @@ Replace `DATA_SIZE_OF_PRECOMPILED_HEX` with the data size of the pre-compiled HE
 ### Step 4 - Leave virtualenv
 See step 4 above.
 
-# Links
-========
 
-### [vscan Integration]()
+
+节点p2p端口: 16666 
+
+fullnode http : 7080
+fullnode rpc : 60061
+
+solidity http : 7081
+solidity rpc : 60071
+
+pbft http : 7082
+pbft rpc : 60081
+
+eventquery rpc : 6666

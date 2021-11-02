@@ -13,9 +13,9 @@ privkey = PrivateKey(bytes(bytearray.fromhex(key)), raw=True)
 print("Public key: {}".format(str(privkey.pubkey.serialize(compressed=False).hex())))
 
 
-full_node = 'https://vtest.infragrid.v.network'
-solidity_node = 'https://vtest.infragrid.v.network'
-event_server = 'https://vtest.infragrid.v.network'
+full_node = 'https://vpioneer.infragrid.v.network'
+solidity_node = 'https://vpioneer.infragrid.v.network'
+event_server = 'https://vpioneer.infragrid.v.network'
 
 vision = Vision(full_node=full_node,
         solidity_node=solidity_node,

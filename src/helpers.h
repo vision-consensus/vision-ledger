@@ -23,16 +23,15 @@
 #ifndef HELPER_H
 #define HELPER_H
 
-#ifdef TARGET_BLUE
-void io_seproxyhal_io_heartbeat(void);
-#endif
 
-void getAddressFromKey(cx_ecfp_public_key_t *publicKey, uint8_t *out);
+void getAddressFromKey(cx_ecfp_public_key_t *publicKey, uint8_t *out,
+                          cx_sha3_t *sha3Context);
 
-void getAddressFromPublicKey(const uint8_t *publicKey, uint8_t *address);
+void getAddressFromPublicKey(uint8_t *publicKey, uint8_t *address,
+                                cx_sha3_t *sha3Context);
 
-void getBase58FromAddress(uint8_t *address, uint8_t *out,
-                                cx_sha256_t* sha2, bool truncate);
+void getBase58FromAddres(uint8_t *address, uint8_t *out,
+                                cx_sha256_t* sha2);
 
 void transactionHash(uint8_t *raw, uint16_t dataLength,
                         uint8_t *out, cx_sha256_t* sha2);
