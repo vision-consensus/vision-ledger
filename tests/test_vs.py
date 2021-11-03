@@ -52,7 +52,7 @@ class App:
                     "path": parse_bip32_path("44'/195'/{}'/0/0".format(i)),
                     "privateKeyHex": HD.PrivateKey().hex(),
                     "key": key,
-                    "addressHex": "41" + key.public_key.to_checksum_address()[2:].upper(),
+                    "addressHex": "46" + key.public_key.to_checksum_address()[2:].upper(),
                     "publicKey": key.public_key.to_hex().upper(),
                     "dh": diffieHellman,
                 }

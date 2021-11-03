@@ -38,7 +38,7 @@ else:
 size=result[size+1]
 if size == 34 :
 	print("Address: " + result[67:67+size].decode())
-	if (result[67:67+size].decode()=="TUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH"):
+	if (result[67:67+size].decode()=="VUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH"):
 		print("Address match with test case!")
 else:
 	print("Error... Address Size: {:d}".format(size))
