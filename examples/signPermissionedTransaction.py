@@ -75,11 +75,12 @@ logger.debug('-= Vision Ledger =-')
 Vision Protobuf
 '''
 from api import api_pb2 as api
-from core import Contract_pb2 as contract
 from api.api_pb2_grpc import WalletStub
 from core import Vision_pb2 as vision
 from google.protobuf.any_pb2 import Any
 import grpc
+
+from core.contract import balance_contract_pb2 as contract
 
 # Start Channel and WalletStub
 channel = grpc.insecure_channel("54.238.114.220:60061")
@@ -91,8 +92,8 @@ logger.debug('''
 
 tx = stub.CreateTransaction2(
         contract.TransferContract(
-            owner_address=bytes.fromhex(address_hex("VUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH")),
-            to_address=bytes.fromhex(address_hex("VPnYqC2ukKyhEDAjqRRobSVygMAb8nAcXM")),
+            owner_address=bytes.fromhex(address_hex("VNsAHAYVSKfKLAkvN4pRRWYoXtpeH69iqk")),
+            to_address=bytes.fromhex(address_hex("VBkBvRzsUNzAtq4XdEVnzh15i4DDkUcM1X")),
             amount=100000
         )
     )  

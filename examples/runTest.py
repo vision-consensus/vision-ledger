@@ -101,11 +101,12 @@ for i in range(2):
 Vision Protobuf
 '''
 from api import api_pb2 as api
-from core import Contract_pb2 as contract
 from api.api_pb2_grpc import WalletStub
 from core import Vision_pb2 as vision
+from core.contract import balance_contract_pb2 as contract
 from google.protobuf.any_pb2 import Any
 import grpc
+
 
 # Start Channel and WalletStub
 channel = grpc.insecure_channel("54.238.114.220:60061")
