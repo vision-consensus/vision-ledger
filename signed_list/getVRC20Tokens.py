@@ -28,7 +28,13 @@ ItemsFields = 'vrc20_tokens'
 toread = 20
 start = 0
 f= open("signedList_VRC20.txt","w+")
-vision = Vision()
+full_node = 'https://vpioneer.infragrid.v.network'
+solidity_node = 'https://vpioneer.infragrid.v.network'
+event_server = 'https://vpioneer.infragrid.v.network'
+
+vision = Vision(full_node=full_node,
+        solidity_node=solidity_node,
+        event_server=event_server)
 totalToken = 0
 while (toread>0):
     url = urlopen_with_retry(toread,start)

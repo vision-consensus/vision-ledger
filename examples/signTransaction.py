@@ -22,9 +22,8 @@ transactionRaw = "0a027d52220889fd90c45b71f24740e0bcb0f2be2c5a67080112630a2d7479
                      "4ad78a1215414f560eb4182ca53757f905609e226e96e8e1a80c18c0843d70d0"\
                      "f5acf2be2c"
 
-signatureCheck = "cd01fcd0a4f0bb9a55a43d57ae1c955374f2540ff931307029e4c1fb80a6dc91"   \
-                     "3185edd8a4dfda2d03aad569b856cfb3ed9db387b6589451797ff01c9c353583"\
-                     "01"
+signatureCheck = "1adea7bededf30a899430b308c3349522e97f8d89ac0adaf7838f7c75d3ec56d09a8"\
+                    "bbdd4c3ddcc16a4a98e1058c2a547c02aceaa8289438eaddc06f5b4f71b600" 
 
 apduMessage = "E0041000" + '{:02x}'.format(int(len(donglePath) / 2) + 1 + int(len(transactionRaw) / 2)) + '{:02x}'.format(int(len(donglePath) / 4 / 2)) + donglePath + transactionRaw
 apdu = bytearray.fromhex(apduMessage)

@@ -43,7 +43,7 @@ apduMessage = "E0049000" + '{:02x}'.format(  int(len(transactionRawEND) / 2)) + 
 result2 = dongle.exchange(bytearray.fromhex(apduMessage))
 
 if (binascii.hexlify(result1[0:65]).decode()==binascii.hexlify(result2[0:65]).decode()):
-	print("Hash signature match")
+	print("1Hash signature match")
 else:
 	print("Hash signature error")
 
@@ -61,8 +61,8 @@ result3 = dongle.exchange(bytearray.fromhex(apduMessage))
 # P1 = P1_LAST = 0x90
 apduMessage = "E0049000" + '{:02x}'.format(  int(len(transactionBIG4) / 2)) +  transactionBIG4
 result4 = dongle.exchange(bytearray.fromhex(apduMessage))
-
+print(binascii.hexlify(result4[0:65]))
 if (binascii.hexlify(result4[0:65]).decode()==signatureTest):
-	print("Hash signature match")
+	print("2Hash signature match")
 else:
 	print("Hash signature error")

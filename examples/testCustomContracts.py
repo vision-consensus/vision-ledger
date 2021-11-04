@@ -101,7 +101,7 @@ for i in range(2):
 Vision Protobuf
 '''
 from api import api_pb2 as api
-from core import Contract_pb2 as contract
+from core.contract import smart_contract_pb2 as contract
 from api.api_pb2_grpc import WalletStub
 from core import Vision_pb2 as vision
 from google.protobuf.any_pb2 import Any
@@ -129,7 +129,7 @@ logger.debug('\n\SmartContract Trigger: Deposit VS in TWM Contract')
 data = '{:08x}'.format(0xd0e30db0)
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VSxrSs7fLjUsJuhhrvAKxiQqz6GPucJYrV")),
         call_value=1000000,
         data=bytes.fromhex(data)
         ))
@@ -156,7 +156,7 @@ logger.debug('\n\SmartContract Trigger: Deposit BTT in TWM Contract')
 data = '{:08x}'.format(0xd0e30db0)
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VSxrSs7fLjUsJuhhrvAKxiQqz6GPucJYrV")),
         call_token_value=1000000,
         token_id=1002000,
         data=bytes.fromhex(data)
@@ -186,7 +186,7 @@ data = '{:08x}{:064x}'.format(
     )
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VSxrSs7fLjUsJuhhrvAKxiQqz6GPucJYrV")),
         data=bytes.fromhex(data)
         ))
 
@@ -217,7 +217,7 @@ data = '{:08x}{:064x}{:064x}'.format(
     )
 tx = stub.TriggerContract(contract.TriggerSmartContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
-        contract_address=bytes.fromhex(address_hex("VTg3AAJBYsDNjx5Moc5EPNsgJSa4anJQ3M")),
+        contract_address=bytes.fromhex(address_hex("VSxrSs7fLjUsJuhhrvAKxiQqz6GPucJYrV")),
         data=bytes.fromhex(data)
         ))
 

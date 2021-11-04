@@ -21,7 +21,7 @@ transactionRaw = "0a02348322084be5ea8bc5bd43a940c0dfdec7a62d5a730802126f0a327479
 # Token Name: CryptoChainToken Code: 1000166 Decimals: 0
 tokenInfo = "0a0b43727970746f436861696e10001a4730450221008417d04d1caeae31f591ae50f7d19e53e0dfb827bd51c18e66081941bf04639802203c73361a521c969e3fd7f62e62b46d61aad00e47d41e7da108546d954278a6b1"
 
-signatureCheck = "c1a32ee50f112f2c38fd7f75961412f9af60d69adb822c507e2442a01275ff3738447c9392aaaaebefde0768936958cbf78c04a896c36b453a220ad5d07d555a00"
+signatureCheck = "ba5a31a98a42096122b250f70a45ee8af62dd84b4a911b45394a62dfd3efebdf6133cd0dae8674d05296912413b99feaadaeff8753ce4b5a46cb4d3193e3ecc800"
 
 # P1 = 0x00 - first message
 apduMessage1 = "E004{:02x}00".format(0x00) + '{:02x}'.format(int(len(donglePath) / 2) + 1 + int(len(transactionRaw) / 2)) + '{:02x}'.format(int(len(donglePath) / 4 / 2)) + donglePath + transactionRaw

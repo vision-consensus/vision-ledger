@@ -92,7 +92,7 @@ logger.debug('''
 
 tx = stub.CreateTransaction2(
         contract.TransferContract(
-            owner_address=bytes.fromhex(address_hex("VNsAHAYVSKfKLAkvN4pRRWYoXtpeH69iqk")),
+            owner_address=bytes.fromhex(address_hex("VBsRY9v2teBhd6mBHkGekFV6baDPbqpPNS")),
             to_address=bytes.fromhex(address_hex("VBkBvRzsUNzAtq4XdEVnzh15i4DDkUcM1X")),
             amount=100000
         )
@@ -107,9 +107,9 @@ raw_tx, sign2 = ledgerSign(parse_bip32_path("44'/195'/1'/0/0"),tx.transaction)
 
 tx.transaction.signature.extend([bytes(sign1[0:65])])
 tx.transaction.signature.extend([bytes(sign2[0:65])])
-
+print("txID:", tx.txid.hex())
 r = stub.BroadcastTransaction(tx.transaction)
-
+print("result:", r)
 if r.result == True:
 	print("Success")
 else:
