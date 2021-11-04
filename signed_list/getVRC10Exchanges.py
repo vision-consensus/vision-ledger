@@ -17,9 +17,7 @@ full_node = 'https://vpioneer.infragrid.v.network'
 solidity_node = 'https://vpioneer.infragrid.v.network'
 event_server = 'https://vpioneer.infragrid.v.network'
 
-vision = Vision(full_node=full_node,
-        solidity_node=solidity_node,
-        event_server=event_server)
+vision = Vision(network="vpioneer")
 
 def int_to_bytes(x):
     return x.to_bytes((x.bit_length() + 7) // 8, 'big')
@@ -42,7 +40,7 @@ f.write('ID,SIG,MESSAGE\n')
 fJS= open("exchanges10.js","w+")
 fJS.write('var exchangeList = [\n');
 
-exchanges = vision.trx.get_list_exchangers()
+exchanges = vision.vs.get_list_exchangers()
 
 
 for E in exchanges['exchanges']:

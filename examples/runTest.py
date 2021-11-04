@@ -124,7 +124,7 @@ logger.debug('\n\nTransfer Contract:')
 tx = stub.CreateTransaction2(contract.TransferContract(
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
         to_address=bytes.fromhex(accounts[0]['addressHex']),
-        amount=1
+        amount=1000
         ))
 
 raw_tx, result = ledgerSign(accounts[1]['path'],tx.transaction)
@@ -179,8 +179,9 @@ else:
 ####################
 logger.debug('\n\nTransfer Asset Contract:')
 
-tx = stub.TransferAsset2(contract.TransferAssetContract(
-        asset_name="1000166".encode(),
+from core.contract import asset_issue_contract_pb2 as asset_issue_contract
+tx = stub.TransferAsset2(asset_issue_contract.TransferAssetContract(
+        asset_name="1000001".encode(),
         owner_address=bytes.fromhex(accounts[1]['addressHex']),
         to_address=bytes.fromhex(accounts[0]['addressHex']),
         amount=1
